@@ -2,6 +2,10 @@
 
 React, TypeScript, SCSS, and Firebase Firestore implementation for the Popshap coding demo.
 
+## Live Demo
+
+https://popshap-score-app.vercel.app
+
 ## Screenshots
 
 <p>
@@ -79,7 +83,7 @@ The implementation was matched against the duplicated Figma draft, including the
 
 ## Submission Summary Draft
 
-1. Time to complete: `[ADD TOTAL TIME HERE]`
+1. Time to complete: 1.5 hours
 2. Easiest part: Building the small typed React structure and Firestore service layer was straightforward.
 3. Most challenging part: Matching the kiosk-scale Figma layout cleanly in a responsive browser while keeping the implementation simple.
 4. Tests included: Two Jest unit tests for validation and top-five stable sorting, plus one React Testing Library component test for the submit form success path.
