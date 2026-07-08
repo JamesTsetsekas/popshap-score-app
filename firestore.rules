@@ -1,0 +1,25 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /submissions/{submissionId} {
+      allow read: if true;
+      allow create: if isValidSubmission();
+      allow update, delete: if false;
+    }
+  }
+}
+
+function isValidSubmission() {
+  return request.resource.data.keys().hasOnly(['firstName', 'lastName', 'score', 'createdAt'])
+    && request.resource.data.firstName is string
+    && request.resource.data.firstName.size() >= 1
+    && request.resource.data.firstName.size() <= 40
+    && request.resource.data.lastName is string
+    && request.resource.data.lastName.size() >= 1
+    && request.resource.data.lastName.size() <= 40
+    && request.resource.data.score is number
+    && request.resource.data.score >= 0
+    && request.resource.data.score <= 999999
+    && request.resource.data.createdAt == request.time;
+}
